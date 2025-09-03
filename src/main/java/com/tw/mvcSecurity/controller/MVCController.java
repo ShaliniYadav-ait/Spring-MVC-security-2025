@@ -11,4 +11,9 @@ public class MVCController {
         return "home";
     }
 
+    @GetMapping("/leaders")
+    public String showLeaders() {
+        return "leaders";
+    }
+
 }
