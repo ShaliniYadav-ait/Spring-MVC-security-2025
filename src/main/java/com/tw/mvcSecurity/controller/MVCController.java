@@ -16,4 +16,10 @@ public class MVCController {
         return "leaders";
     }
 
+
+    @GetMapping("/admin")
+    public String showAdmins() {
+        return "admin";
+    }
+
 }
