@@ -10,4 +10,9 @@ public class mvcController {
     public String showHome() {
         return "home";
     }
+
+    @GetMapping("/showMyLoginPage")
+    public String showMyLoginPage() {
+        return "plain-login";
+    }
 }
