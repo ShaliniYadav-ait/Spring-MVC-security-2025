@@ -41,7 +41,11 @@ public class MVCSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
-                        configurer.anyRequest().authenticated()
+                        configurer
+                                .requestMatchers("/leaders/**").hasRole("MANAGER")
+                                .requestMatchers("/system/**").hasRole("ADMIN")
+                                .requestMatchers("/everyone/**").hasAnyRole("MANAGER", "EMPLOYEE", "ADMIN")
+                                .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/showMyLoginPage")
